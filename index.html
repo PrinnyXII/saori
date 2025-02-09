@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="/_vercel/insights/script.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css" />
+    <title>Status de Doll - A Simulação</title>
+    <meta name="description" content="Site para visualizar status de RPG e curiosidades sobre A Simulação." />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://github.com/PrinnyXII/st/blob/main/rep/buffy%20mansion.png?raw=true') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #76c7c0;
+        }
+        .card {
+            background: rgba(59, 59, 59, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        .strikethrough {
+            text-decoration: line-through;
+        }
+        .card::before {
+            content: '';
+            background: url('https://github.com/PrinnyXII/st/blob/main/rep/darkqueen%20b.png?raw=true') no-repeat;
+            background-size: contain ;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.5;
+            border-radius: 10px;
+            z-index: -1;
+        }
+        .card h2 {
+            margin: 10px 0;
+            color: #f5b12b;
+        }
+        .card p {
+            margin: 5px 0;
+        }
+        .attributesf, .titles, .classes {
+            margin: 15px 0;
+            padding: 10px;
+            background: #444;
+            border-radius: 5px;
+        }
+         .attributes {
+           margin: 15px 0;
+           padding: 10px;
+           background: url('https://i.imgur.com/tg4Fg2I.gif') no-repeat;
+           background-size: cover; /* Ajusta a imagem para cobrir toda a área */
+           border-radius: 5px;
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Se quiser uma sombra suave ao redor */
+        }
+
+        .status-bar {
+            margin: 10px 0;
+            font-weight: bold;
+
+        }
+        .status-value {
+            color: #76c7c0;
+        }
+        .gif {
+            width: 30px;
+            height: auto;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+        .titles, .classes {
+            margin: 15px 0;
+            padding: 10px;
+            background: #444;
+            border-radius: 5px;
+        }
+        .status-bar {
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .statuss-bar {
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .status-value {
+            color: #76c7c0;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            border-radius: 10px;
+            background-color: #ddd;
+            margin-top: 5px;
+        }
+        .mental-bar {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+        .gif {
+            width: 30px;
+            height: auto;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+        .gif2 {
+            width: 100px;
+            height: auto;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+        .progress-bar p {
+            margin: 0;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Status de Doll - A Simulação</h1>
+    
+    <div class="card">
+        <h2>Saori Elgrin Narsus</h2>
+        <p><strong>Idade:</strong> 1620</p>
+        <p><strong>Lv:</strong> ??</p>
+        <p><strong>Raça:</strong> Fairy Vital <img src="https://github.com/PrinnyXII/st/blob/main/rep/shoggoth%20eyes.gif?raw=true" alt="Raça" class="gif"></p>
+        
+        <div class="attributes">
+            <h3>Atributos</h3>
+            <p class="status-bar"><img src="https://github.com/PrinnyXII/st/blob/main/rep/HP.gif?raw=true" alt="HP" class="gif" />HP: <span class="status-value">3142</span></p>
+            <p class="status-bar"><img src="https://github.com/PrinnyXII/st/blob/main/rep/MP.gif?raw=true" alt="MP" class="gif" />MP: <span class="status-value">80461</span></p>
+            <p class="status-bar"><img src="https://github.com/PrinnyXII/st/blob/main/rep/AGI.gif?raw=true" alt="AGI" class="gif" />AGI: <span class="status-value">19442</span></p>
+            <p class="status-bar"><img src="https://github.com/PrinnyXII/st/blob/main/rep/DEF.gif?raw=true" alt="DEF" class="gif" />DEF: <span class="status-value">308</span></p>
+            <p class="status-bar"><img src="https://github.com/PrinnyXII/st/blob/main/rep/RES.gif?raw=true" alt="RES" class="gif" />RES: <span class="status-value">12626</span></p>
+            <p class="status-bar"><img src="https://github.com/PrinnyXII/st/blob/main/rep/SPD.gif?raw=true" alt="SPD" class="gif" />SPD: <span class="status-value">21365</span></p>
+            <p class="status-bar"><img src="https://github.com/PrinnyXII/st/blob/main/rep/INT.gif?raw=true" alt="INT" class="gif" />INT: <span class="status-value">33651</span></p>
+            <p class="status-bar"><img src="https://github.com/PrinnyXII/st/blob/main/rep/ATK.gif?raw=true" alt="ATK" class="gif" />ATK: <span class="status-value">251</span></p>
+            <p class="status-bar"><img src="https://github.com/PrinnyXII/st/blob/main/rep/SMP.gif?raw=true" alt="SMP" class="gif" />SMP: <span class="status-value">?????</span></p>
+            <p class="status-bar"><img src="https://github.com/PrinnyXII/st/blob/main/rep/ASMP.gif?raw=true" alt="ASMP" class="gif" />??: <span class="status-value">3,90</span></p>
+        </div>
+
+        <div class="classes">
+            <h3>Classes</h3>
+            <p><strong>Profissão:</strong> Normal Artisan (??), ??(6),</p>
+ 			<p><strong>Classe:</strong> Illusionist (??), Mystic archer (??), ?? (??), ?? (90), Maga de luz (??), Storyteller (23), Apprentice (??), ladina[A], Death Lady (Null).</p>
+            <p><strong>Benção:</strong> Perseguidora do Prazer</p>
+
+        <div class="titles">
+            <h3>Títulos</h3>
+            <p><strong>Título 1:</strong> ??</p>
+            <p><strong>Título 2:</strong> ??</p>
+            <p><strong>Título 3:</strong> princessa da pureza</p>
+            <p><strong>Título 4:</strong> lady do palacio da pureza</p>
+            <p><strong>Título 5:</strong> herdeira de vanillia</p>
+            <p><strong>Título 6:</strong> portadora do pedido</p>
+            <p><strong>Título 7:</strong> seguidora da ladina</p>
+            <p><strong>Título 8:</strong> ajudante de ladina</p>
+            <p><strong>Título 9:</strong> Amante da morte</p>
+            <p><strong>Título 10:</strong><b> A morte convida para dançar</b></p>
+           
+        </div>
+        
+        <div class="statuss-bar">
+            <strong>Taxa de assimilação:</strong> 96.10%
+        </div>
+
+    <!-- Player de Música -->
+        <div class="music-player">
+            <h3>Aura</h3>
+            <iframe width="100%" height="400" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fstrawaryd%2Fbuffy-the-last-shot%2F" frameborder="0" ></iframe>
+        </div>
+
+    <style>
+        
+    </style><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Status de Doll - A Simulação</title>
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://github.com/PrinnyXII/st/blob/main/rep/buffy%20mansion.png?raw=true') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #76c7c0;
+        }
+        .card {
+            background: rgba(59, 59, 59, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        .status-bar {
+            margin: 10px 0;
+        }
+        .status-bar strong {
+            display: inline-block;
+            width: 100px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 25px;
+            border-radius: 12px;
+            background-color: #ddd;
+            margin-top: 5px;
+        }
+        .mental-bar {
+            height: 100%;
+            border-radius: 12px;
+            transition: width 0.3s ease-in-out;
+        }
+        .section-title {
+            color: #76c7c0;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Status Fisicos</h1>
+    
+    <!-- Necessidades Básicas -->
+    <div class="card">
+        <h2 class="section-title">✨丨Necessidades Básicas</h2>
+        
+        <div class="status-bar">
+            <strong>Higiene:</strong>
+            <div class="progress-bar" id="hygiene-bar">
+                <div class="mental-bar" id="mental-hygiene-bar" style="width: 100%;"></div>
+            </div>
+            <p><span id="hygiene-percentage">100</span>%</p>
+        </div>
+
+        <div class="status-bar">
+            <strong>Banheiro:</strong>
+            <div class="progress-bar" id="bathroom-bar">
+                <div class="mental-bar" id="mental-bathroom-bar" style="width: 20%;"></div>
+            </div>
+            <p><span id="bathroom-percentage">20</span>%</p>
+        </div>
+
+        <div class="status-bar">
+            <strong>Sono:</strong>
+            <div class="progress-bar" id="sleep-bar">
+                <div class="mental-bar" id="mental-sleep-bar" style="width: 80%;"></div>
+            </div>
+            <p><span id="sleep-percentage">80</span>%</p>
+        </div>
+
+        <div class="status-bar">
+            <strong>Desgaste:</strong>
+            <div class="progress-bar" id="weariness-bar">
+                <div class="mental-bar" id="mental-weariness-bar" style="width: 50%;"></div>
+            </div>
+            <p><span id="weariness-percentage">50</span>%</p>
+        </div>
+
+        <div class="status-bar">
+            <strong>Fome:</strong>
+            <div class="progress-bar" id="hunger-bar">
+                <div class="mental-bar" id="mental-hunger-bar" style="width: 50%;"></div>
+            </div>
+            <p><span id="hunger-percentage">50</span>%</p>
+        </div>
+
+        <div class="status-bar">
+            <strong>Sede:</strong>
+            <div class="progress-bar" id="thirst-bar">
+                <div class="mental-bar" id="mental-thirst-bar" style="width: 40%;"></div>
+            </div>
+            <p><span id="thirst-percentage">40</span>%</p>
+        </div>
+
+        <div class="status-bar">
+            <strong>Diversão:</strong>
+            <div class="progress-bar" id="fun-bar">
+                <div class="mental-bar" id="mental-fun-bar" style="width: 75%;"></div>
+            </div>
+            <p><span id="fun-percentage">75</span>%</p>
+        </div>
+
+        <div class="status-bar">
+            <strong>Social:</strong>
+            <div class="progress-bar" id="social-bar">
+                <div class="mental-bar" id="mental-social-bar" style="width: 60%;"></div>
+            </div>
+            <p><span id="social-percentage">60</span>%</p>
+        </div>
+
+        <div class="status-bar">
+            <strong>Foco:</strong>
+            <div class="progress-bar" id="focus-bar">
+                <div class="mental-bar" id="mental-focus-bar" style="width: 80%;"></div>
+            </div>
+            <p><span id="focus-percentage">80</span>%</p>
+        </div>
+
+        <div class="status-bar">
+            <strong>Autoestima:</strong>
+            <div class="progress-bar" id="selfesteem-bar">
+                <div class="mental-bar" id="mental-selfesteem-bar" style="width: 65%;"></div>
+            </div>
+            <p><span id="selfesteem-percentage">65</span>%</p>
+        </div>
+
+        <h3>✨丨Condições Temporárias:</h3>
+
+        <div class="status-bar">
+            <strong>Enjoo:</strong>
+            <div class="progress-bar" id="nausea-bar">
+                <div class="mental-bar" id="mental-nausea-bar" style="width: 10%;"></div>
+            </div>
+            <p><span id="nausea-percentage">10</span>%</p>
+        </div>
+
+        <div class="status-bar">
+            <strong>Fadiga:</strong>
+            <div class="progress-bar" id="fatigue-bar">
+                <div class="mental-bar" id="mental-fatigue-bar" style="width: 55%;"></div>
+            </div>
+            <p><span id="fatigue-percentage">55</span>%</p>
+        </div>
+
+        <div class="status-bar">
+            <strong>Estresse:</strong>
+            <div class="progress-bar" id="stress-bar">
+                <div class="mental-bar" id="mental-stress-bar" style="width: 50%;"></div>
+            </div>
+            <p><span id="stress-percentage">50</span>%</p>
+        </div>
+
+        <div class="status-bar">
+            <strong>Ansiedade:</strong>
+            <div class="progress-bar" id="anxiety-bar">
+                <div class="mental-bar" id="mental-anxiety-bar" style="width: 45%;"></div>
+            </div>
+            <p><span id="anxiety-percentage">45</span>%</p>
+        </div>
+
+        <div class="status-bar">
+            <strong>Medo:</strong>
+            <div class="progress-bar" id="fear-bar">
+                <div class="mental-bar" id="mental-fear-bar" style="width: 30%;"></div>
+            </div>
+            <p><span id="fear-percentage">30</span>%</p>
+        </div>
+
+        <div class="status-bar">
+            <strong>Felicidade:</strong>
+            <div class="progress-bar" id="happiness-bar">
+                <div class="mental-bar" id="mental-happiness-bar" style="width: 80%;"></div>
+            </div>
+            <p><span id="happiness-percentage">80</span>%</p>
+        </div>
+
+        <div class="status-bar">
+            <strong>Tesão:</strong>
+            <div class="progress-bar" id="desire-bar">
+                <div class="mental-bar" id="mental-desire-bar" style="width: 70%;"></div>
+            </div>
+            <p><span id="desire-percentage">70</span>%</p>
+        </div>
+
+        <div class="status-bar">
+            <strong>Tédio:</strong>
+            <div class="progress-bar" id="boredom-bar">
+                <div class="mental-bar" id="mental-boredom-bar" style="width: 25%;"></div>
+            </div>
+            <p><span id="boredom-percentage">25</span>%</p>
+        </div>
+        
+<div class="status-bar">
+            <strong>VE:</strong>
+            <div class="progress-bar" id="vital-bar">
+                <div class="mental-bar" id="mental-vital-bar" style="width: 20%;"></div>
+            </div>
+            <p><span id="vital-percentage">20</span>%</p>
+        </div>
+
+        <div class="status-bar">
+            <strong>Raiva:</strong>
+            <div class="progress-bar" id="anger-bar">
+                <div class="mental-bar" id="mental-anger-bar" style="width: 20%;"></div>
+            </div>
+            <p><span id="anger-percentage">20</span>%</p>
+        </div>
+
+    </div>
+
+    <script>
+        const statusData = {
+            hygiene: 92, 
+            bathroom: 22, 
+            sleep: 19, 
+            weariness: 74, 
+            hunger: 51,
+            thirst: 89, 
+            fun: 39, 
+            social: 88, 
+            focus: 7, 
+            selfesteem: 100,
+            nausea: 13, 
+            fatigue: 79, 
+            stress: 82, 
+            anxiety: 79, 
+            fear: 33,
+            happiness: 98, 
+            desire: 36, 
+            boredom: 0, 
+            vital: 27,
+            anger: 18
+        };
+
+        function updateBarColors() {
+            for (const [key, value] of Object.entries(statusData)) {
+                const color = key === 'happiness' || key === 'fun' || key === 'focus' || key === 'selfesteem' || key === 'hygiene' || key === 'social' || key === 'vital' || key === 'bathroom' || key === 'sleep' || key === 'desire'
+                    ? value > 70 ? '#33cc33' : value > 40 ? '#ffcc00' : '#ff3333'
+                    : value < 30 ? '#33cc33' : value < 60 ? '#ffcc00' : '#ff3333';
+                document.getElementById(`${key}-percentage`).innerText = value;
+                document.getElementById(`mental-${key}-bar`).style.backgroundColor = color;
+                document.getElementById(`mental-${key}-bar`).style.width = `${value}%`;
+            }
+        }
+
+        updateBarColors();
+    </script>
+
+</body>
+</html>
